@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
-
+import { inject, TestBed } from '@angular/core/testing';
 import { SerieService } from './serie.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('SerieService', () => {
-  let service: SerieService;
+describe('Service: Serie', () => {
+ beforeEach(() => {
+   TestBed.configureTestingModule({
+     imports: [HttpClientTestingModule],
+     providers: [SerieService]
+   });
+ });
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(SerieService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+ it('should ...', inject([SerieService], (service: SerieService) => {
+   expect(service).toBeTruthy();
+ }));
 });

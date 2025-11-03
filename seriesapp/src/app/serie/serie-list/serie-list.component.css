@@ -1,0 +1,28 @@
+/* Ajusta tamaño de la imagen del card */
+.poster-img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Un poco de separación */
+.card {
+  margin-bottom: 1rem;
+}
+
+/* Ajuste de columnas para pantallas pequeñas */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+
+  .col-md-4,
+  .col-md-8 {
+    width: 100%;
+  }
+
+  .poster-img {
+    max-height: 200px;
+  }
+}

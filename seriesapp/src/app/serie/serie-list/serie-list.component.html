@@ -1,23 +1,58 @@
+    <div class="container-fluid mt-4">
+    <div class="row">
 
-    <div class="container-fluid">
-    <div class="col-6">
+        <div class="col-md-8">
         <table class="table table-striped">
-        <thead class="table-dark">
+            <thead class="table-dark">
             <tr>
-            <th class="h4">#</th>
-            <th class="h4">Name</th>
-            <th class="h4">Channel</th>
-            <th class="h4">Seasons</th>
+                <th class="h4">#</th>
+                <th class="h4">Name</th>
+                <th class="h4">Channel</th>
+                <th class="h4">Seasons</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr *ngFor="let s of series">
-            <td>{{ s.id }}</td>
-            <td>{{ s.name }}</td>
-            <td>{{ s.channel }}</td>
-            <td>{{ s.seasons }}</td>
+                <td>{{ s.id }}</td>
+                <td>
+                <a
+                    href="#"
+                    (click)="selectSerie(s); $event.preventDefault();"
+                    class="text-decoration-none text-primary"
+                >
+                    {{ s.name }}
+                </a>
+                </td>
+                <td>{{ s.channel }}</td>
+                <td>{{ s.seasons }}</td>
             </tr>
-        </tbody>
+            </tbody>
         </table>
+
+        <p class="fw-semibold">
+            Seasons Average: {{ averageSeasons | number: '1.0-0' }}
+        </p>
+        </div>
+
+        <div class="col-md-4">
+        <div *ngIf="selectedSerie" class="card shadow-sm">
+            <img
+            [src]="selectedSerie.poster"
+            class="card-img-top poster-img"
+            [alt]="selectedSerie.name"
+            />
+            <div class="card-body">
+            <h5 class="card-title">{{ selectedSerie.name }}</h5>
+            <p class="card-text">{{ selectedSerie.description }}</p>
+            <a
+                [href]="selectedSerie.webpage"
+                target="_blank"
+                class="text-decoration-none text-primary"
+            >
+                {{ selectedSerie.webpage }}
+            </a>
+            </div>
+        </div>
+        </div>
     </div>
     </div>
